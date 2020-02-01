@@ -13,8 +13,8 @@ app.set('view engine', 'ejs');
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({extended:true}));
 
-mongoose.connect('mongodb://localhost:27017/hackvsit', {useNewUrlParser: true});
-//mongoose.connect("mongodb+srv://rajat-admin:rajat1999@cluster0-nbxxl.mongodb.net/hackvsit",{useNewUrlParser: true});
+//mongoose.connect('mongodb://localhost:27017/hackvsit', {useNewUrlParser: true});
+mongoose.connect("mongodb+srv://rajat-admin:rajat1999@cluster0-nbxxl.mongodb.net/hackvsit",{useNewUrlParser: true});
 
 app.get('/template', function(req, res){
   res.render('index_template');
