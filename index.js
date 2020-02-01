@@ -9,7 +9,7 @@ const Volunteer = require('./models/Volunteer');
 
 app.set('view engine', 'ejs');
 
-// app.use(express.static("views"));
+app.use(express.static("views"));
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({extended:true}));
 
