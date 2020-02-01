@@ -1,0 +1,26 @@
+<%-include('partials/header_notlogin.ejs')-%>
+
+<div id="login-form">
+  <div class="row">
+    <div class="col-lg-2">
+
+    </div>
+    <div class="col-lg-3">
+      <b>Name of NGO : </b><%=found.name%><br>
+      <b>Location of NGO : </b><%=found.location%><br>
+      <b>Current no of volunteers : </b><%=found.volunteer%><br><br>
+
+      <form class="" action="/become_volunteer" method="post">
+        <input type="text" class="form-control" name="name" value="" placeholder="Name" autofocus="on">
+        <input type="text" class="form-control" name="phone" value="" placeholder="Phone Number">
+        <br>
+        <button type="submit" name="button" class="btn btn-success" value="<%=found._id%>">Submit</button>
+      </form>
+
+    </div>
+  </div>
+
+</div>
+
+  </body>
+</html>

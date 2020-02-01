@@ -1,0 +1,26 @@
+<%-include('partials/header_login')-%>
+
+  <div id="login-form">
+    <h2 id="listngoheading"><b>List of Volunteers</b></h2><br>
+    
+    <br><br>
+      <%volunteers.forEach(function(volunteer){%>
+            <div class="row">
+              <div class="col-lg-2"></div>
+        <div class="col-lg-4">
+          <div class="ngolistcard">
+          <b>NGO name : </b>  <%=volunteer.name%><br>
+            <b>NGO location : </b><%=  volunteer.phone%><br>
+          <br>
+
+          </div>
+        </div>
+        </div><br>
+      <%});%>
+
+
+
+
+  </div>
+  </body>
+</html>

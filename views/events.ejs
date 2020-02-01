@@ -1,0 +1,30 @@
+<%-include('partials/header_login')-%>
+<div id="login-form">
+        <h2 id="listngoheading"><b>List of Events</b></h2><br>
+  <a href="/add_event"> <button type="button" class="btn btn-info" name="button" id="listngoheading">Organise event</button> </a>
+  <br><br>
+  <div class="">
+    <%events.forEach(function(event){%>
+
+      <div class="row">
+        <div class="col-lg-2">
+        </div>
+        <div class="col-lg-4">
+          <div class="ngolistcard">
+                <h6><b>EVENT</b></h6><br>
+        <b>Event Date : </b>    <%=event.date%> <br>
+          <b>Event Cause : </b>  <%=event.topic%> <br>
+          <b>Description : </b>  <%=event.description%> <br>
+        <b>Location : </b>    <%=event.location%> <br><br>
+          </div>
+        </div>
+      </div>
+      <br>
+    <%});%>
+
+  </div>
+
+</div>
+
+  </body>
+</html>

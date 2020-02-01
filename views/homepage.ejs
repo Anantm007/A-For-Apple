@@ -1,0 +1,32 @@
+<%-include('partials/header_login')-%>
+
+  <div id="login-form">
+    <div class="row">
+      <div class="col-lg-2"></div>
+      <div class="col-lg-4">
+        <h2>Your details</h2>
+        <b>NGO name : </b> <%=user.username%><br>
+        <b>NGO location : </b> <%=user.location%><br>
+        <b>No of volunteers : </b> <%=user.volunteers%><br>
+        <b>Your Activity : </b> <%=user.timesUsed%><br><br>
+        <b>Volunteer Info : </b><br>
+    <%    if(user.volunteerinfo){ %>
+      <%  user.volunteerinfo.forEach(function(single){%>
+          <b>Phone no : </b> <%=single%><br>
+      <%  });%>
+    <%}%>
+<br>
+        <a href="/activity_ngo">Check other NGOs activity</a>
+        <br>
+      </div>
+      <div class="col-lg-5">
+        <h3><b>Study Now!</b></h3>
+        <p>Lorem ipsum explain the App.</p>
+        <a href="index_alphabets.html"><button type="button" class="btn btn-warning" name="button">Study</button></a>
+
+      </div>
+    </div>
+      </div>
+
+  </body>
+</html>

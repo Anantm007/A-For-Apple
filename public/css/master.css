@@ -1,0 +1,43 @@
+#login-form{
+  margin-top: 12rem;
+}
+
+#volunteer-form{
+  margin-top: 20rem;
+}
+
+.ngolistcard{
+  border-radius: 5px;
+  box-shadow: 2px 2px 4px 1px grey;
+  padding: 15px;
+}
+
+#resultoutright{
+  color:green;
+
+}
+
+#listngoheading{
+  margin-left: 16rem;
+}
+
+.activityGraph{
+  width:50%;
+}
+
+.gifAlphabet{
+  margin-left: 50%;
+}
+
+.alphabetcss{
+  margin-left: 3%;
+}
+
+.resultout{
+  font-size: 60px;
+}
+
+#formation{
+  /* margin-right: 19rem; */
+  margin-left: 1rem;
+}

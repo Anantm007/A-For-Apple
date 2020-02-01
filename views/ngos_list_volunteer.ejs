@@ -1,0 +1,30 @@
+<%-include('partials/header_notlogin.ejs')-%>
+
+    <div id="login-form">
+      <h2 id="listngoheading"><b>List of NGOs</b></h2><br>
+        <a href="/activity_ngo"> <button id="listngoheading" type="button" name="button" class="btn btn-primary">Check NGOs activity</button> </a>
+      <br><br>
+      <a href="mapWithCluster/index.html"> <button id="listngoheading" type="button" name="button" class="btn btn-primary">See NGO Clusters</button> </a>
+    <br><br>
+    <a href="mapWithPolygon/index.html"> <button id="listngoheading" type="button" name="button" class="btn btn-primary">See NGOs deprived area</button> </a>
+  <br><br>
+        <%ngos.forEach(function(ngo){%>
+              <div class="row">
+                <div class="col-lg-2"></div>
+          <div class="col-lg-4">
+            <div class="ngolistcard">
+            <b>NGO name : </b>  <%=ngo.name%><br>
+              <b>NGO location : </b><%=ngo.location%><br>
+            <b>Current no of volunteers : </b>  <%=ngo.volunteers%><br><br>
+              <a href="/<%=ngo._id%>/volunteer"> <button type="button" class="btn btn-outline-success btn-sm"name="button">Become a member</button> </a>
+            </div>
+          </div>
+          </div><br>
+        <%});%>
+
+
+
+
+    </div>
+  </body>
+</html>
