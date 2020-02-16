@@ -1,0 +1,28 @@
+<%-include('partials/header_notlogin.ejs')-%>
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script> 
+
+<div id="login-form">
+  <div class="row">
+    <div class="col-lg-2">
+
+    </div>
+    <div class="col-lg-6">
+      <h2>Ask a Doubt / प्रश्न पूछें </h2><br>
+      
+      <form method="POST" action="/doubt">
+        <input type="text" class="form-control" name="ques" value="<%=ques%>" placeholder="Your Question / आपका प्रश्न" autofocus="on">
+        <br/>
+        <!-- <input type="text" class="form-control" name="answer" value="<%=answer%>" placeholder="Answer / उत्तर" /> -->
+        <p><%=answer%></p>
+        <br>
+        <button type="submit" class="btn btn-primary">Ask / पूछें</button>
+      </form>
+
+    </div>
+  </div>
+
+</div>
+
+  </body>
+
+  </html>

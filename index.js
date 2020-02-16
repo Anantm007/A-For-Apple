@@ -1,16 +1,17 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const app = express();
-const bodyParser =  require('body-parser');
+const bodyParser = require('body-parser');
+
 
 app.set('view engine', 'ejs');
 
 //app.use(express.static("views"));
 app.use(express.static('public'));
+
 app.use(bodyParser.urlencoded({extended:true}));
 
-mongoose.connect("mongodb+srv://rajat-admin:rajat1999@cluster0-nbxxl.mongodb.net/hackvsit",{useNewUrlParser: true, useUnifiedTopology: true})
-.then( () => console.log("Database Connected..."));
+mongoose.connect("mongodb+srv://admin:admin@cluster0-nbxxl.mongodb.net/test?retrywrites=true&w=majority",{useNewUrlParser: true, useUnifiedTopology: true})
 
 app.use('/',require('./routes/index'));
 

@@ -1,11 +1,15 @@
 const express = require('express');
 const router = express.Router();
 
+// Models
 const Ngo = require('../models/Ngo');
 const Events = require('../models/Events');
 const Volunteer = require('../models/Volunteer');
 
+// Request package
+const request = require('request');
 
+/*                                                   ROUTES                                   */
 router.get('/template', function(req, res){
     res.render('index_template');
   });
@@ -19,7 +23,7 @@ router.get('/bargraph', function(req, res){
     res.render('barGraph');
 });
 
-//render home page
+// Landing page
 router.get('/', function(req, res){
     res.render('index_template');
 });
@@ -127,5 +131,28 @@ router.get('/activity_ngo', function(req, res){
         res.render('active_ngo', {ngos:result});
     });
 });
+
+router.get('/askadoubt', async(req, res)=> {
+    return res.render('doubts', {ques: '', answer: ''});
+})
+
+// Doubts
+router.post('/doubt', async(req, res) => {
+    
+    request(`https://bingsearchabcd.cognitiveservices.azure.com/bing/v7.0/search?q=${req.body.ques.toString()}`, 
+        {headers: {'Ocp-Apim-Subscription-Key' :  '28ab19c6510a4ec2bdce7278d7988d80'}},
+         (err,response, body) => {
+             const x = JSON.parse(response.body)
+             console.log('lol', x.webPages.value[0].snippet)
+         if(err)
+         {
+             return res.json({
+                 success: false,
+                 message: err
+             })
+         }
+         return res.render('doubts', {ques: req.body.ques.toString(), answer: x.webPages.value[0].snippet})
+    })
+})
 
   module.exports = router;
