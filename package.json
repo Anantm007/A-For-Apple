@@ -4,10 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js",
+    "server": "nodemon index.js",
+    "dev": "npm run server"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Anant Mathur",
+  "license": "MIT",
   "dependencies": {
     "body-parser": "^1.19.0",
     "chart.js": "^2.9.3",
