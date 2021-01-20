@@ -1,21 +1,48 @@
-const express = require('express');
-const mongoose = require('mongoose');
+const express = require("express");
 const app = express();
-const bodyParser = require('body-parser');
 
+// Utilities
+const mongoose = require("mongoose");
+const bodyParser = require("body-parser");
 
-app.set('view engine', 'ejs');
+// Config variables
+require("dotenv").config();
+const {MONGOURI} = process.env;
 
-//app.use(express.static("views"));
-app.use(express.static('public'));
+// Setting the EJS engine
+app.set("view engine", "ejs");
+app.use(express.static("public"));
 
-app.use(bodyParser.urlencoded({extended:true}));
-mongoose.connect("mongodb+srv://admin:admin@cluster0-nbxxl.mongodb.net/hackvsit",{useNewUrlParser: true});
-// mongoose.connect("mongodb+srv://admin:admin@cluster0-nbxxl.mongodb.net/test?retrywrites=true&w=majority",{useNewUrlParser: true, useUnifiedTopology: true})
+// To get data in JSON format
+app.use(bodyParser.urlencoded({extended: true}));
 
-app.use('/',require('./routes/index'));
+// Connecting to the database
+mongoose.promise = global.Promise;
+console.log(MONGOURI);
+mongoose.connect(
+  MONGOURI,
+  {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useFindAndModify: false,
+    useCreateIndex: true
+  },
+  (err, db) => {
+    if (err) console.log(err);
+    else console.log("Database Connected...");
+  }
+);
 
+// Test route
+app.get("/api", async (req, res) => {
+  return res.status(200).json({message: "API running..."});
+});
 
-app.listen(process.env.PORT || 5000, function(){
-  console.log(`Server running on port ${process.env.PORT || 5000}`);
+// Mounting the routes
+app.use("/", require("./routes/index"));
+
+// Starting the server
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, function () {
+  console.log(`Server running on port ${PORT}`);
 });
